@@ -1,0 +1,22 @@
+{
+  "name": "environment_ejs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development --watch --hide-modules",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "repository": "https://github.com/Smoo-daishi/Environment_EJS.git",
+  "author": "Smoo-daishi <arakawa@smoo.co.jp>",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.0",
+    "webpack-cli": "^3.3.9"
+  },
+  "dependencies": {
+    "jquery": "^3.4.1"
+  }
+}
