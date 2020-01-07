@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const path = require("path");
+var HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   watch: true,
   mode: "development",
@@ -16,6 +17,10 @@ module.exports = {
     contentBase: "./public"
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      filename: "index.html",
+      template: "src/index.ejs"
+    }),
     new CleanWebpackPlugin(),
     new webpack.ProvidePlugin({
       $: "jquery"
@@ -37,12 +42,18 @@ module.exports = {
         ],
         exclude: /node_modules/
       },
+      // EJS取り込み設定
+      {
+        test: /\.ejs$/,
+        use: ["html-loader", "ejs-html-loader"]
+      },
       // CSS取り込み設定
       {
         test: /\.scss$/,
         include: path.resolve(__dirname, "src/scss"),
         use: ["style-loader", "css-loader", "sass-loader"]
       },
+      // 画像取り込み設定
       {
         test: /\.(png|jpg|gif)$/i,
         include: path.resolve(__dirname, "src/images"),
